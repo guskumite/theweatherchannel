@@ -13,6 +13,8 @@ function App() {
   const [latValue, setLatValue] = useState(null);
   const [lonValue, setLonValue] = useState(null);
 
+  // To get the country name
+
   function fetchLocationName(lat, lon) {
     const API_KEY2 = "y77Y8tt+EY3w7Enay/FQPw==l0kTeMZ6MIOF5B1i";
     const url2 = `https://api.api-ninjas.com/v1/reversegeocoding?lat=${lat}&lon=${lon}`;
@@ -35,14 +37,18 @@ function App() {
       });
   }
 
+  // To get a list of country codes
+
   function fetchCountries() {
-    fetch("./src/assets/countries.json")
+    fetch("/countries.json")
       .then((response) => response.json())
       .then((data) => {
         setCountriesList(data);
       })
       .catch((error) => console.log(error));
   }
+
+  // Find the country by its code searching the array
 
   function Countries(countryCode) {
     fetchCountries();
@@ -55,6 +61,8 @@ function App() {
     }
     return countryName;
   }
+
+  // The calling to axios to get the weather information
 
   const success = (pos) => {
     const lat = pos?.coords.latitude;
@@ -73,6 +81,8 @@ function App() {
     setLonValue(lon);
     fetchLocationName(lat, lon);
   };
+
+  // Get the geolocation from the navigator
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success);
