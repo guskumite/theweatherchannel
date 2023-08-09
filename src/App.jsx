@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import Weather from "./components/Weather";
@@ -52,11 +52,12 @@ function App() {
 
   function Countries(countryCode) {
     fetchCountries();
-    let countryName = "";
+    let countryName = nameOfCountry != null ? nameOfCountry : "";
     for (let index = 0; index <= countriesList.length - 1; index++) {
       if (countryCode === countriesList[index].code) {
         countryName = countriesList[index].name;
         localStorage.setItem("countryName", countryName);
+        const nameOfCountry = useRef(countryName);
       }
     }
     return countryName;
