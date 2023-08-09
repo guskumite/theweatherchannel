@@ -52,7 +52,7 @@ function App() {
 
   function Countries(countryCode) {
     fetchCountries();
-    let countryName = nameOfCountry != null ? nameOfCountry : "";
+    let countryName = "";
     for (let index = 0; index <= countriesList.length - 1; index++) {
       if (countryCode === countriesList[index].code) {
         countryName = countriesList[index].name;
@@ -88,11 +88,14 @@ function App() {
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
-  for (let index = 0; index < countriesList.length; index++) {
-    if (countryCode === countriesList[index].code) {
-      setCountryName(countriesList[index].name);
-      localStorage.setItem("countryName", countryName);
-    };
+  if (!countryName || countryName.length === 0) {
+    for (let index = 0; index < countriesList.length; index++) {
+      if (countryCode === countriesList[index].code) {
+        setCountryName(countriesList[index].name);
+        localStorage.setItem("countryName", countryName);
+      }
+    }
+  }
 
   return (
     <main
