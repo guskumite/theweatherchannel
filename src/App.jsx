@@ -106,7 +106,11 @@ function App() {
       <span className="grid grid-rows-[15%, 85%]">
         <span className="grid grid-cols-2"></span>
         <h2>
-          <Weather weatherInfo={weatherInfo} cityName={cityName} />
+          <Weather
+            weatherInfo={weatherInfo}
+            cityName={cityName}
+            countryName={countryName}
+          />
         </h2>
       </span>
     </main>

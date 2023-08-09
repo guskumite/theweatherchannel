@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./styles/Weather.css";
 
-const Weather = ({ weatherInfo, cityName }) => {
+const Weather = ({ weatherInfo, cityName, countryName }) => {
   const [isCelsius, setIsCelsius] = useState(true);
   const [weatherCondition, setWeatherCondition] = useState("");
   const [darkMode, setDarkMode] = useState(false);
