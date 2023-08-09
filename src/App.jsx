@@ -87,6 +87,12 @@ function App() {
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
+  for (let index = 0; index < countriesList.length; index++) {
+    if (countryCode === countriesList[index].code) {
+      setCountryName(countriesList[index].name);
+      localStorage.setItem("countryName", countryName);
+    };
+
   return (
     <main
       className="mobile min-h-screen font-lato text-white flex justify-center
