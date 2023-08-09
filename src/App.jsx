@@ -56,7 +56,9 @@ function App() {
     for (let index = 0; index <= countriesList.length - 1; index++) {
       if (countryCode === countriesList[index].code) {
         countryName = countriesList[index].name;
-        localStorage.setItem("countryName", countryName);
+        if (countryName.length > 0) {
+          localStorage.setItem("countryName", countryName);
+        }
       }
     }
     return countryName;
