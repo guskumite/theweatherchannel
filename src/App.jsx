@@ -11,6 +11,7 @@ function App() {
   const [countriesList, setCountriesList] = useState([]);
   const [latValue, setLatValue] = useState(null);
   const [lonValue, setLonValue] = useState(null);
+  const [countryName, setCountryName] = useState(null);
 
   // To get the country name
 
