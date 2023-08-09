@@ -9,10 +9,8 @@ function App() {
   const [countryCode, setCountryCode] = useState("");
   const [cityName, setCityName] = useState("");
   const [countriesList, setCountriesList] = useState([]);
-  const [countryName, setCountryName] = useState(null);
   const [latValue, setLatValue] = useState(null);
   const [lonValue, setLonValue] = useState(null);
-  const [nameOfCountry, setNameOfCountry] = useState(null);
 
   // To get the country name
 
@@ -58,7 +56,6 @@ function App() {
       if (countryCode === countriesList[index].code) {
         countryName = countriesList[index].name;
         localStorage.setItem("countryName", countryName);
-        setNameOfCountry(useRef(countryName));
       }
     }
     return countryName;
