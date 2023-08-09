@@ -30,7 +30,9 @@ function App() {
         setLocationName(data2);
         setCountryCode(data2[0]?.country);
         setCityName(data2[0]?.name);
-        setCountryName(Countries(countryCode));
+        if (Countries(countryCode).length > 0) {
+          setCountryName(Countries(countryCode));
+        }
       })
       .catch((err) => {
         console.log(`error ${err}`);
