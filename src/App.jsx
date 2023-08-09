@@ -92,7 +92,9 @@ function App() {
     for (let index = 0; index < countriesList.length; index++) {
       if (countryCode === countriesList[index].code) {
         setCountryName(countriesList[index].name);
-        localStorage.setItem("countryName", countryName);
+        if (countryName.length > 0) {
+          localStorage.setItem("countryName", countryName);
+        }
       }
     }
   }, [countryName]);
