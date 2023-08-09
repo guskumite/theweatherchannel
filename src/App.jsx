@@ -88,14 +88,14 @@ function App() {
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
-  if (!countryName || countryName.length === 0) {
+  useEffect(() => {
     for (let index = 0; index < countriesList.length; index++) {
       if (countryCode === countriesList[index].code) {
         setCountryName(countriesList[index].name);
         localStorage.setItem("countryName", countryName);
       }
     }
-  }
+  }, [countryName]);
 
   return (
     <main
